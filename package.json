@@ -1,0 +1,35 @@
+{
+  "name": "Trellis",
+  "version": "0.0.1",
+  "description": "Trellis plugins",
+  "keywords": [],
+  "homepage": "https://github.com/corporadobob/trellis",
+  "author": {
+    "name": "JC",
+    "email": "j@colindres.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/corporadobob/trellis.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "devDependencies": {
+    "gulp": "~3.5.0",
+    "gulp-load-plugins": "~0.3.0",
+    "gulp-util": "~2.2.9",
+    "gulp-jshint": "~1.4.0",
+    "jshint-stylish": "~0.1.5",
+    "gulp-clean": "~0.2.4",
+    "gulp-size": "~0.1.2",
+    "gulp-connect": "~1.0.0",
+    "gulp-uglify": "~0.2.1",
+    "gulp-rename": "~1.1.0"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}
