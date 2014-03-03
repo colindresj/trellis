@@ -11,11 +11,12 @@ function Trellis(element, config){
   'use strict';
 
   var defaults, opts, container, containerWidth,
-      colWidth, numCols, colsArray;
+      spaceLeft, colWidth, numCols, colsArray;
 
   defaults = {
     colSelector: '.trellis-col',
-    gutter: 10
+    gutter: 10,
+    keepCentered: true
   };
 
   opts = _extend({}, defaults, config || {});
@@ -43,6 +44,10 @@ function Trellis(element, config){
 
     numCols = Math.floor(containerWidth / colWidth);
 
+    if (opts.keepCentered) {
+      spaceLeft = (containerWidth - ( (colWidth * numCols) + (opts.gutter * (numCols - 1)) )) / 2;
+    }
+
     // Create placeholders in the colsArray
     for (i = numCols - 1; i >= 0; i--) {
       colsArray.push(opts.gutter);
@@ -53,13 +58,15 @@ function Trellis(element, config){
     var i, j, current, shortest,
         cols = document.querySelectorAll(opts.colSelector);
 
-    for (i = 0; i < cols.length; i++) {
+    for (i = cols.length -1; i >=0; i--) {
       current = cols[i];
       shortest = colsArray.min();
       j = colsArray.indexOf(shortest);
 
-      current.style.left = j * (colWidth + opts.gutter) + 'px';
       current.style.top = shortest + 'px';
+      current.style.left = opts.keepCentered ?
+                           ( j * (colWidth + opts.gutter) ) + spaceLeft + 'px' :
+                           j * (colWidth + opts.gutter) + 'px';
 
       colsArray[j] += opts.gutter + current.offsetHeight;
     }
@@ -74,7 +81,6 @@ function Trellis(element, config){
       createCols();
     });
   }
-
 
   function _extend() {
     var args, target, i, key, current;
