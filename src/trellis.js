@@ -6,34 +6,57 @@
  * Licensed under the MIT license.
  */
 
-(function ($) {
+/*jshint unused: false */
+function Trellis(element, config){
   'use strict';
 
-  // Collection method.
-  $.fn.awesome = function () {
-    return this.each(function (i) {
-      // Do something awesome to each selected element.
-      $(this).html('awesome' + i);
-    });
+  var defaults, opts, containerWidth, colWidth, numCols, colsArray = [];
+
+  defaults = {
+    colSelector: 'trellis-col'
   };
 
-  // Static method.
-  $.awesome = function (options) {
-    // Override default options with passed-in options.
-    options = $.extend({}, $.awesome.options, options);
-    // Return something awesome.
-    return 'awesome' + options.punctuation;
-  };
+  opts = _extend({}, defaults, config);
 
-  // Static method default options.
-  $.awesome.options = {
-    punctuation: '.'
-  };
+  // Quit early if no element passed in
+  // or element passed in incorrectly
+  if ( !element || typeof element !== 'string' ) throw new Error('Element must be a valid css selector as a string.');
 
-  // Custom selector.
-  $.expr[':'].awesome = function (elem) {
-    // Is this element awesome?
-    return $(elem).text().indexOf('awesome') !== -1;
-  };
+  // Quit early if no DOM element present
+  if ( !document.querySelector(element) ) throw new Error('The element passed in was not found in the DOM.');
 
-}(jQuery));
+  function setPlaceholders(){
+    var i;
+
+    // Remove any padding that might be on the container
+    if (element.style.padding) element.style.padding = '';
+
+    containerWidth = element.clientwidth;
+    colWidth = opts.colSelector.offsetWidth;
+
+    numCols = Math.floor(containerWidth / colWidth);
+
+    // Create placeholders in the colsArray
+    for (i = numCols - 1; i >= 0; i--) {
+      colsArray.push(null);
+    }
+  }
+
+  function _extend() {
+    var args, target, i, key;
+
+    args = Array.prototype.slice.call(arguments, 0);
+    target = args.shift();
+
+    for (i = 1; i < args.length; i++) {
+      for (key in args[i]) {
+        if (args[i].hasOwnProperty(key)) {
+          target[key] = args[i][key];
+        }
+      }
+    }
+
+    return target;
+  }
+
+}
