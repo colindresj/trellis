@@ -2,14 +2,15 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>jQuery.Trellis Test Suite</title>
+  <title>Trellis Test Suite</title>
   <!-- Load local jQuery. -->
-  <script src="../bower_components/jquery/jquery.js"></script>
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
   <!-- Load local QUnit. -->
   <link rel="stylesheet" href="../bower_components/qunit/qunit/qunit.css" media="screen">
   <script src="../bower_components/qunit/qunit/qunit.js"></script>
   <!-- Load local lib and tests. -->
   <script src="../src/trellis.js"></script>
+  <script src="../src/jquery.trellis.js"></script>
   <script src="trellis_test.js"></script>
   <!-- Removing access to jQuery and $. But it'll still be available as _$, if
        you REALLY want to mess around with jQuery in the console. REMEMBER WE
@@ -19,9 +20,7 @@
 <body>
   <div id="qunit"></div>
   <div id="qunit-fixture">
-    <span>lame test markup</span>
-    <span>normal test markup</span>
-    <span>awesome test markup</span>
+    <div class="container"></div>
   </div>
 </body>
 </html>

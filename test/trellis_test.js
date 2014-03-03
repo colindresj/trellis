@@ -20,43 +20,39 @@
       throws(block, [expected], [message])
   */
 
-  module('jQuery#awesome', {
+
+  // Native Trellis
+  module('Trellis', {
     // This will run before each test in this module.
     setup: function() {
       this.elems = $('#qunit-fixture').children();
     }
   });
 
-  test('is chainable', function() {
+  test('throws an error when the element passed in is not a string', function(){
     expect(1);
-    // Not a bad test to run on collection methods.
-    strictEqual(this.elems.awesome(), this.elems, 'should be chainable');
+
+    throws(function(){
+      Trellis();
+    }, /Element must be a valid css selector as a string./, 'error thrown.');
   });
 
-  test('is awesome', function() {
+  test('throws an error when the element passed in is not found in the DOM', function(){
     expect(1);
-    strictEqual(this.elems.awesome().text(), 'awesome0awesome1awesome2', 'should be awesome');
+
+    throws(function(){
+      Trellis('#notInDOM');
+    }, /The element passed in was not found in the DOM./, 'error thrown.');
   });
 
-  module('jQuery.awesome');
-
-  test('is awesome', function() {
-    expect(2);
-    strictEqual($.awesome(), 'awesome.', 'should be awesome');
-    strictEqual($.awesome({punctuation: '!'}), 'awesome!', 'should be thoroughly awesome');
+  module('Trellis#setPlaceholders', function(){
   });
 
-  module(':awesome selector', {
-    // This will run before each test in this module.
-    setup: function() {
-      this.elems = $('#qunit-fixture').children();
-    }
+  test('it returns an array of placeholders', function(){
+    // var arr = [1, 2, 3, 4];
+
+
   });
 
-  test('is awesome', function() {
-    expect(1);
-    // Use deepEqual & .get() when comparing jQuery objects.
-    deepEqual(this.elems.filter(':awesome').get(), this.elems.last().get(), 'knows awesome when it sees it');
-  });
 
 }(jQuery));
