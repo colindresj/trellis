@@ -10,13 +10,12 @@
 function Trellis(element, config){
   'use strict';
 
-  var defaults, opts, container,
-      containerWidth, colWidth, numCols,
-      colsArray = [];
+  var defaults, opts, container, containerWidth,
+      colWidth, numCols, colsArray;
 
   defaults = {
     colSelector: '.trellis-col',
-    margin: 10
+    gutter: 10
   };
 
   opts = _extend({}, defaults, config || {});
@@ -36,6 +35,9 @@ function Trellis(element, config){
     // Remove any padding that might be on the container
     if (container.style.padding) container.style.padding = '';
 
+    // Reset the colsArray
+    colsArray = [];
+
     containerWidth = container.clientWidth;
     colWidth = document.querySelector(opts.colSelector).offsetWidth;
 
@@ -43,7 +45,7 @@ function Trellis(element, config){
 
     // Create placeholders in the colsArray
     for (i = numCols - 1; i >= 0; i--) {
-      colsArray.push(opts.margin);
+      colsArray.push(opts.gutter);
     }
   }
 
@@ -56,16 +58,21 @@ function Trellis(element, config){
       shortest = colsArray.min();
       j = colsArray.indexOf(shortest);
 
-      current.style.left = j * (colWidth + opts.margin) + 'px';
+      current.style.left = j * (colWidth + opts.gutter) + 'px';
       current.style.top = shortest + 'px';
 
-      colsArray[j] += opts.margin + current.offsetHeight;
+      colsArray[j] += opts.gutter + current.offsetHeight;
     }
   }
 
   function init(){
     setPlaceholders();
     createCols();
+
+    window.addEventListener('resize', function(){
+      setPlaceholders();
+      createCols();
+    });
   }
 
 
