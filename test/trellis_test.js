@@ -25,16 +25,16 @@
   module('Trellis', {
     // This will run before each test in this module.
     setup: function() {
-      this.elems = $('#qunit-fixture').children();
+      this.el = $('#qunit-fixture').children();
     }
   });
 
-  test('throws an error when the element passed in is not a string', function(){
+  test('throws an error when the element selector passed in is not a string', function(){
     expect(1);
 
     throws(function(){
       Trellis();
-    }, /Element must be a valid css selector as a string./, 'error thrown.');
+    }, /Element must be a valid css selector as a string./, 'should throw error.');
   });
 
   test('throws an error when the element passed in is not found in the DOM', function(){
@@ -42,7 +42,28 @@
 
     throws(function(){
       Trellis('#notInDOM');
-    }, /The element passed in was not found in the DOM./, 'error thrown.');
+    }, /The element passed in was not found in the DOM./, 'should throw error.');
+  });
+
+  test('is chainable', function() {
+    expect(1);
+
+    strictEqual( Trellis('.' + this.el.attr('class') ), this.el[0], 'should be chainable');
+  });
+
+  module('Trellis#createCols', {
+    setup: function() {
+      this.el = $('#qunit-fixture').children();
+      Trellis( '.' + this.el.attr('class') );
+    }
+  });
+
+  test('sets a top and left style to each column item', function(){
+    expect(3);
+
+    ok(!!$('.trellis-col').attr('style'), 'should set an inline style');
+    equal( $('.trellis-col').eq(0).css('top'), '10px', 'should set a top style' );
+    equal( $('.trellis-col').eq(0).css('left'), '0px', 'should set a left style' );
   });
 
 
