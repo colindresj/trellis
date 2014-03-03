@@ -58,6 +58,9 @@ function Trellis(element, config){
     var i, j, current, shortest,
         cols = document.querySelectorAll(opts.colSelector);
 
+    // Add the appropriate left position according to
+    // the num of items in colsArray and top position
+    // according to the shortest available column
     for (i = cols.length -1; i >=0; i--) {
       current = cols[i];
       shortest = colsArray.min();
@@ -98,6 +101,21 @@ function Trellis(element, config){
     }
     return target;
   }
+
+  Array.prototype.indexOf = Array.prototype.indexOf || function(searchEl, fromIndex){
+    var length = this.length,
+        i = (typeof fromIndex === "undefined" ? 0 : (fromIndex < 0 ? length + fromIndex : fromIndex)),
+        foundIndex = -1;
+
+    for (i; i < length; ++i) {
+      if (this[i] === searchEl) {
+        foundIndex = i;
+        break;
+      }
+    }
+
+    return foundIndex;
+  };
 
   Array.prototype.min = function() {
     return Math.min.apply(Math, this);
