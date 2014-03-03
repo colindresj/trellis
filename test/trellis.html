@@ -3,6 +3,11 @@
 <head>
   <meta charset="utf-8">
   <title>Trellis Test Suite</title>
+  <style>
+    .trellis-col {
+      width: 300;
+    }
+  </style>
   <!-- Load local jQuery. -->
   <script src="../bower_components/jquery/dist/jquery.js"></script>
   <!-- Load local QUnit. -->
@@ -20,7 +25,9 @@
 <body>
   <div id="qunit"></div>
   <div id="qunit-fixture">
-    <div class="container"></div>
+    <div class="container">
+      <div class="trellis-col"></div>
+    </div>
   </div>
 </body>
 </html>

@@ -45,14 +45,5 @@
     }, /The element passed in was not found in the DOM./, 'error thrown.');
   });
 
-  module('Trellis#setPlaceholders', function(){
-  });
-
-  test('it returns an array of placeholders', function(){
-    // var arr = [1, 2, 3, 4];
-
-
-  });
-
 
 }(jQuery));
