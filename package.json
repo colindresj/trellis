@@ -18,7 +18,7 @@
     }
   ],
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp"
   },
   "devDependencies": {
     "gulp": "~3.5.0",
