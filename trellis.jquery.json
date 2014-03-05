@@ -1,6 +1,6 @@
 {
   "name": "Trellis",
-  "title": "jQuery.Trellis",
+  "title": "jQuery.trellis",
   "description": "Lightweight masonry layouts.",
   "version": "0.0.1",
   "homepage": "corporadobob/trellis",
@@ -15,7 +15,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://opensource.org/licenses/MIT"
+      "url": "https://github.com/corporadobob/trellis/blob/master/MIT"
     }
   ],
   "dependencies": {

@@ -32,6 +32,7 @@ gulp.task('clean', function () {
 
 // Default task
 gulp.task('default', ['clean'], function () {
+  gulp.start('test');
   gulp.start('scripts');
 });
 
