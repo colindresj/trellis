@@ -23,7 +23,7 @@
   module('Trellis', {
     // This will run before each test in this module.
     setup: function() {
-      this.el = $('#qunit-fixture').children();
+      this.$el = $('#qunit-fixture').children();
     }
   });
 
@@ -54,13 +54,13 @@
   test('is chainable', function() {
     expect(1);
 
-    strictEqual( Trellis('.' + this.el.attr('class') ), this.el[0], 'should be chainable');
+    strictEqual( Trellis( this.$el[0] ), this.$el[0], 'should be chainable');
   });
 
   module('Trellis#createCols', {
     setup: function() {
-      this.el = $('#qunit-fixture').children();
-      Trellis( '.' + this.el.attr('class') );
+      this.$el = $('#qunit-fixture').children();
+      Trellis( '.' + this.$el.attr('class') );
     }
   });
 
@@ -70,6 +70,18 @@
     ok(!!$('.trellis-col').attr('style'), 'should set an inline style');
     strictEqual( $('.trellis-col')[0].style.top, '10px', 'should set a top style' );
     strictEqual( $('.trellis-col')[0].style.left, '0px', 'should set a left style' );
+  });
+
+  module('jQuery.trellis', {
+    setup: function() {
+      this.$el = $('#qunit-fixture').children();
+    }
+  });
+
+  test('is chainable', function() {
+    expect(1);
+
+    equal( this.$el.trellis()[0], this.$el[0], 'should be chainable' );
   });
 
 

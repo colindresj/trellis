@@ -175,3 +175,12 @@ function Trellis(container, config){
   return container;
 }
 
+
+// Make available as jQuery/Zepto plugin
+if ( window.jQuery || window.Zepto ) {
+  (function($) {
+    $.fn.trellis = function(options) {
+      return $( new Trellis(this.get(0), options) );
+    };
+  })( window.jQuery || window.Zepto );
+}
