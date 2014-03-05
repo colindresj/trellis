@@ -7,10 +7,10 @@
  */
 
 /*jshint unused: false */
-function Trellis(element, config){
+function Trellis(container, config){
   'use strict';
 
-  var defaults, opts, container, containerWidth,
+  var defaults, opts, containerWidth,
       spaceLeft, colWidth, numCols, colsArray;
 
   defaults = {
@@ -22,14 +22,8 @@ function Trellis(element, config){
 
   opts = _extend({}, defaults, config || {});
 
-  // Quit early if no element passed in
-  // or element passed in incorrectly
-  if ( !element || typeof element !== 'string' ) throw new Error('Element must be a valid css selector as a string.');
-
-  // Quit early if no DOM element present
-  if ( !document.querySelector(element) ) throw new Error('The element passed in was not found in the DOM.');
-
-  container = document.querySelector(element);
+  // Error if container is not an HTML element
+  if ( !_isElement(container) ) throw new Error(container + ' is not an HTML element.');
 
   function setPlaceholders() {
     var i;
@@ -101,6 +95,14 @@ function Trellis(element, config){
       }
     }
     return target;
+  }
+
+  function _isElement(el){
+    if (typeof HTMLElement === 'object') {
+      return el instanceof HTMLElement;
+    } else {
+      return el && typeof el === 'object' && el !== null && el !== undefined && el.nodeType && el.nodeType === 1;
+    }
   }
 
   function _isFunction(functionToCheck) {
