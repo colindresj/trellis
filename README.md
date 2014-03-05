@@ -1,4 +1,5 @@
 # Trellis
+[![Build Status](https://travis-ci.org/corporadobob/trellis.png?branch=master)](https://travis-ci.org/corporadobob/trellis)
 
 Lightweight masonry layouts.
 
