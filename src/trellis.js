@@ -22,8 +22,17 @@ function Trellis(container, config){
 
   opts = _extend({}, defaults, config || {});
 
-  // Error if container is not an HTML element
-  if ( !_isElement(container) ) throw new Error(container + ' is not an HTML element.');
+  // Error if no element or selector passed in or passed incorrectly
+  if (!container) throw new Error('No HTML element or selector specified');
+
+  // Allow css selector instead of HTML element,
+  // but error if selector passed incorrectly
+  if (typeof container === 'string')  {
+    if ( !document.querySelector(container) ) throw new Error('No HTML element found using the passed in selector: ' + container);
+    container = document.querySelector(container);
+  } else {
+    if ( !_isElement(container) ) throw new Error(container + ' is not an HTML element');
+  }
 
   function setPlaceholders() {
     var i;
@@ -165,3 +174,4 @@ function Trellis(container, config){
 
   return container;
 }
+

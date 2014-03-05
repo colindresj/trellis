@@ -27,20 +27,28 @@
     }
   });
 
-  test('throws an error when the element selector passed in is not a string', function(){
+  test('throws an error when no element or selector is passed in', function(){
     expect(1);
 
     throws(function(){
       Trellis();
-    }, /Element must be a valid css selector as a string./, 'should throw error.');
+    }, /No HTML element or selector specified/, 'should throw error.');
   });
 
-  test('throws an error when the element passed in is not found in the DOM', function(){
+  test('throws an error when no HTML element found with valid selector passed in', function(){
     expect(1);
 
     throws(function(){
       Trellis('#notInDOM');
-    }, /The element passed in was not found in the DOM./, 'should throw error.');
+    }, /No HTML element found using the passed in selector/, 'should throw error.');
+  });
+
+  test('throws an error when the object passed in is not an HTML element', function(){
+    expect(1);
+
+    throws(function(){
+      Trellis({});
+    }, /is not an HTML element/, 'should throw error.');
   });
 
   test('is chainable', function() {
