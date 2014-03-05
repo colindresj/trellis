@@ -17,6 +17,9 @@
       "type": "MIT"
     }
   ],
+  "scripts": {
+    "test": "gulp test"
+  },
   "devDependencies": {
     "gulp": "~3.5.0",
     "gulp-load-plugins": "~0.3.0",

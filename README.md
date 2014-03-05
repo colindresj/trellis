@@ -80,5 +80,5 @@ Although it's written in vanilla Javascript, Trellis also comes packaged as a jQ
 
 ## Example
 
-A basic example is available on [JSFiddle](http://jsfiddle.net/VVsLt/)
+A basic example is available on [JSFiddle](http://jsfiddle.net/VVsLt/1/)
 
