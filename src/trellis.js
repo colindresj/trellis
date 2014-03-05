@@ -16,7 +16,8 @@ function Trellis(element, config){
   defaults = {
     colSelector: '.trellis-col',
     gutter: 10,
-    keepCentered: true
+    keepCentered: true,
+    afterInit: function() {}
   };
 
   opts = _extend({}, defaults, config || {});
@@ -30,7 +31,7 @@ function Trellis(element, config){
 
   container = document.querySelector(element);
 
-  function setPlaceholders(){
+  function setPlaceholders() {
     var i;
 
     // Remove any padding that might be on the container
@@ -54,7 +55,7 @@ function Trellis(element, config){
     }
   }
 
-  function createCols(){
+  function createCols() {
     var i, j, current, shortest,
         cols = document.querySelectorAll(opts.colSelector);
 
@@ -75,7 +76,7 @@ function Trellis(element, config){
     }
   }
 
-  function init(){
+  function init() {
     setPlaceholders();
     createCols();
 
@@ -91,15 +92,19 @@ function Trellis(element, config){
     args = Array.prototype.slice.call(arguments, 0);
     target = args.shift();
 
-    for (i = args.length - 1; i >= 0; i--) {
+    for (i = 0; i < args.length; i++) {
       current = args[i];
       for (key in current) {
-        if ( current.hasOwnProperty(key) ) {
+        if ( current[key] && current.hasOwnProperty(key) ) {
           target[key] = current[key];
         }
       }
     }
     return target;
+  }
+
+  function _isFunction(functionToCheck) {
+    return functionToCheck && Object.prototype.toString.call(functionToCheck) === '[object Function]';
   }
 
   Array.prototype.indexOf = Array.prototype.indexOf || function(searchEl, fromIndex){
@@ -151,6 +156,10 @@ function Trellis(element, config){
 
   // Start the plugin
   init();
+
+  if ( _isFunction(opts.afterInit) ) {
+    opts.afterInit.call(window, container);
+  }
 
   return container;
 }

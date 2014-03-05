@@ -20,8 +20,6 @@
       throws(block, [expected], [message])
   */
 
-
-  // Native Trellis
   module('Trellis', {
     // This will run before each test in this module.
     setup: function() {
@@ -62,8 +60,8 @@
     expect(3);
 
     ok(!!$('.trellis-col').attr('style'), 'should set an inline style');
-    equal( $('.trellis-col').eq(0).css('top'), '10px', 'should set a top style' );
-    equal( $('.trellis-col').eq(0).css('left'), '0px', 'should set a left style' );
+    strictEqual( $('.trellis-col')[0].style.top, '10px', 'should set a top style' );
+    strictEqual( $('.trellis-col')[0].style.left, '0px', 'should set a left style' );
   });
 
 

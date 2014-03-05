@@ -27,7 +27,8 @@
     "gulp-size": "~0.1.2",
     "gulp-connect": "~1.0.0",
     "gulp-uglify": "~0.2.1",
-    "gulp-rename": "~1.1.0"
+    "gulp-rename": "~1.1.0",
+    "gulp-qunit": "~0.2.1"
   },
   "engines": {
     "node": ">=0.8.0"

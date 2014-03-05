@@ -19,6 +19,12 @@ gulp.task('scripts', function () {
   .pipe(gulp.dest('dist'));
 });
 
+// Tests
+gulp.task('test', function() {
+  return gulp.src('test/trellis.html')
+  .pipe(_.qunit());
+});
+
 // Clean
 gulp.task('clean', function () {
   return gulp.src(['dist/scripts'], { read: false }).pipe(_.clean());
