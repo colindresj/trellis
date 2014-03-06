@@ -57,6 +57,16 @@
     strictEqual( Trellis( this.$el[0] ), this.$el[0], 'should be chainable');
   });
 
+  test('calls the afterInit callback', function() {
+    expect(1);
+
+    Trellis(this.$el[0], {
+      afterInit: function(){
+        ok(true, 'should call the afterInit callback');
+      }
+    });
+  });
+
   module('Trellis#createCols', {
     setup: function() {
       this.$el = $('#qunit-fixture').children();
