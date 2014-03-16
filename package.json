@@ -28,7 +28,7 @@
     "jshint-stylish": "~0.1.5",
     "gulp-clean": "~0.2.4",
     "gulp-size": "~0.1.2",
-    "gulp-connect": "~1.0.0",
+    "gulp-connect": "~1.0.7",
     "gulp-uglify": "~0.2.1",
     "gulp-rename": "~1.1.0",
     "gulp-qunit": "~0.2.1"

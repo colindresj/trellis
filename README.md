@@ -61,7 +61,7 @@ Trellis can take an optional config object as a second parameter with the follow
 Name          | Type       | Default        | Description
 --------------|------------| ---------------|---------------------------
 colSelector   | string     | '.trellis-col' | Selector for your columns
-gutter        | number     | true           | Thee spacing between each column in pixels
+gutter        | number     | 10             | Thee spacing between each column in pixels
 keepCentered  | boolean    | true           | Keeps the columns centered inside the container
 afterInit     | function   | function(el){} | After init callback function with the container as a parameter
 

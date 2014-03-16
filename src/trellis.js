@@ -6,7 +6,7 @@
  * Licensed under the MIT license.
  */
 
-function Trellis(container, config){
+function Trellis(container, config) {
   'use strict';
 
   var defaults, opts, containerWidth,
@@ -105,7 +105,7 @@ function Trellis(container, config){
     return target;
   }
 
-  function _isElement(el){
+  function _isElement(el) {
     if (typeof HTMLElement === 'object') {
       return el instanceof HTMLElement;
     } else {
@@ -167,6 +167,7 @@ function Trellis(container, config){
   // Start the plugin
   init();
 
+  // Check for an afterInit hook and invoke
   if ( _isFunction(opts.afterInit) ) {
     opts.afterInit.call(window, container);
   }
@@ -176,11 +177,11 @@ function Trellis(container, config){
 
 
 // Make available as jQuery/Zepto plugin
-if ( window.jQuery || window.Zepto ) {
+if (window.jQuery || window.Zepto) {
   (function($) {
     'use strict';
     $.fn.trellis = function(options) {
       return $( new Trellis(this.get(0), options) );
     };
-  })( window.jQuery || window.Zepto );
+  })(window.jQuery || window.Zepto);
 }
