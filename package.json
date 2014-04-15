@@ -3,14 +3,14 @@
   "version": "0.0.1",
   "description": "Trellis plugins",
   "keywords": [],
-  "homepage": "https://github.com/corporadobob/trellis",
+  "homepage": "https://github.com/colindresj/trellis",
   "author": {
     "name": "JC",
     "email": "j@colindres.me"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/corporadobob/trellis.git"
+    "url": "git://github.com/colindresj/trellis.git"
   },
   "licenses": [
     {

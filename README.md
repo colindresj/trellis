@@ -1,5 +1,5 @@
 # Trellis
-[![Build Status](https://travis-ci.org/corporadobob/trellis.png?branch=master)](https://travis-ci.org/corporadobob/trellis)
+[![Build Status](https://travis-ci.org/colindresj/trellis.svg?branch=master)](https://travis-ci.org/colindresj/trellis)
 
 Lightweight masonry layouts.
 
@@ -7,8 +7,8 @@ Lightweight masonry layouts.
 
 Download the [production version][min] or the [development version][max].
 
-[min]: https://raw.github.com/corporadobob/trellis/master/dist/trellis.min.js
-[max]: https://raw.github.com/corporadobob/trellis/master/dist/trellis.js
+[min]: https://raw.github.com/colindresj/trellis/master/dist/trellis.min.js
+[max]: https://raw.github.com/colindresj/trellis/master/dist/trellis.js
 
 Create a container somewhere on your page with columns:
 
