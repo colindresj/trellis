@@ -1,10 +1,9 @@
-# Trellis
+#Trellis
 [![Build Status](https://travis-ci.org/colindresj/trellis.svg?branch=master)](https://travis-ci.org/colindresj/trellis)
 
 Lightweight masonry layouts.
 
-## Getting Started
-
+##Getting Started
 Download the [production version][min] or the [development version][max].
 
 [min]: https://raw.github.com/colindresj/trellis/master/dist/trellis.min.js
@@ -28,9 +27,6 @@ Add the following styles to your columns:
   position: absolute;
   width: 300px; /* Width can be anything you want, but 300px seems to work nicely */
   -webkit-transition: all 0.75s ease-in-out;
-    -moz-transition: all 0.75s ease-in-out;
-    -o-transition: all 0.75s ease-in-out;
-    -ms-transition: all 0.75s ease-in-out;
     transition: all 0.75s ease-in-out;
 }
 ```
@@ -40,22 +36,20 @@ Include the script and call Trellis.
 ```html
 <script src="trellis.min.js"></script>
 <script>
-window.onload = function() {
-  window.trellis = Trellis( document.getElementById('trellis'), [options] );
-};
+  window.onload = function() {
+    var trellis = Trellis( document.getElementById('trellis'), [options] );
+  };
 </script>
 ```
 
-#### CSS Selector
-
+####CSS Selector
 If you're happy with the default way of calling Trellis, that's all there is to it. However, as a convenience, Trellis will accept both an HTML element or a css selector as the first parameter when invoking the function. So, the following will accomplish the exact same thing as above:
 
 ```js
-window.trellis = Trellis('#trellis');
+var trellis = Trellis('#trellis');
 ```
 
-## Options
-
+##Options
 Trellis can take an optional config object as a second parameter with the following options:
 
 Name          | Type       | Default        | Description
@@ -63,9 +57,9 @@ Name          | Type       | Default        | Description
 colSelector   | string     | '.trellis-col' | Selector for your columns
 gutter        | number     | 10             | Thee spacing between each column in pixels
 keepCentered  | boolean    | true           | Keeps the columns centered inside the container
-afterInit     | function   | function(el){} | After init callback function with the container as a parameter
+afterInit     | function   | function(el){} | After init callback with the container as a parameter
 
-## jQuery and Zepto
+##jQuery and Zepto
 
 Although it's written in vanilla Javascript, Trellis also comes packaged as a jQuery/Zepto plugin. If you'd like to use it that way, simply do so in the common jQuery collection plugin syntax. Like any good jQuery plugin, jQuery.trellis is chainable.
 
@@ -79,7 +73,6 @@ Although it's written in vanilla Javascript, Trellis also comes packaged as a jQ
 </script>
 ```
 
-## Example
-
+##Example
 A basic example is available on [JSFiddle](http://jsfiddle.net/VVsLt/1/)
 
