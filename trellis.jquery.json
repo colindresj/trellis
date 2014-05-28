@@ -2,7 +2,7 @@
   "name": "Trellis",
   "title": "jQuery.trellis",
   "description": "Lightweight masonry layouts.",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "homepage": "colindresj/trellis",
   "author": {
     "name": "JC"
@@ -22,6 +22,7 @@
     "jquery": "latest"
   },
   "keywords": [
-    "jquery-plugin"
+    "jquery-plugin",
+    "masonry"
   ]
 }

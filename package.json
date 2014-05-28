@@ -1,8 +1,13 @@
 {
   "name": "Trellis",
-  "version": "0.0.1",
-  "description": "Trellis plugins",
-  "keywords": [],
+  "version": "1.0.0",
+  "description": "Lightweight masonry layouts.",
+  "keywords": [
+    "masonry",
+    "plugin",
+    "jquery",
+    "zepto"
+  ],
   "homepage": "https://github.com/colindresj/trellis",
   "author": {
     "name": "JC",

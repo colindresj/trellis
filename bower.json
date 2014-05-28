@@ -1,7 +1,25 @@
 {
   "name": "Trellis",
-  "private": true,
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "homepage": "https://github.com/colindresj/trellis",
+  "authors": [
+  "JC <j@colindres.me>"
+  ],
+  "description": "Lightweight masonry layouts.",
+  "keywords": [
+    "masonry",
+    "plugin",
+    "jquery",
+    "zepto"
+  ],
+  "license": "MIT",
+  "main": "dist/trellis.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "private": false,
   "dependencies": {},
   "devDependencies": {
     "qunit": "~1.12.0",

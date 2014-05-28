@@ -94,7 +94,7 @@
     equal( this.$el.trellis()[0], this.$el[0], 'should be chainable' );
   });
 
-  test('accepts optional config', function() {
+  test('accepts options', function() {
     expect(2);
 
     ok( this.$el.trellis( {gutter: 5 }), 'should accept options' );
