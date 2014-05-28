@@ -1,5 +1,6 @@
 #Trellis
 [![Build Status](https://travis-ci.org/colindresj/trellis.svg?branch=master)](https://travis-ci.org/colindresj/trellis)
+[![Bower version](https://badge.fury.io/bo/trellis.svg)](http://badge.fury.io/bo/trellis)
 
 Lightweight masonry layouts.
 
