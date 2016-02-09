@@ -1,14 +1,16 @@
 #Trellis
 [![Build Status](https://travis-ci.org/colindresj/trellis.svg?branch=master)](https://travis-ci.org/colindresj/trellis)
-[![Bower version](https://badge.fury.io/bo/trellis.svg)](http://badge.fury.io/bo/trellis)
 
 Lightweight masonry layouts.
 
 ##Getting Started
-Download the [production version][min] or the [development version][max].
+Download the [production version][min] or the [development version][dev].
 
-[min]: https://raw.github.com/colindresj/trellis/master/dist/trellis.min.js
-[max]: https://raw.github.com/colindresj/trellis/master/dist/trellis.js
+Trellis is UMD packaged, so it can be used in web, AMD or CommonJS
+environments.
+
+[min]: https://cdn.rawgit.com/colindresj/trellis/master/dist/trellis.min.js
+[dev]: https://rawgit.com/colindresj/trellis/master/dist/trellis.js
 
 Create a container somewhere on your page with columns:
 
@@ -23,7 +25,7 @@ Create a container somewhere on your page with columns:
 
 Add the following styles to your columns:
 
-```scss
+```css
 .trellis-col {
   position: absolute;
   width: 300px; /* Width can be anything you want, but 300px seems to work nicely */
@@ -75,5 +77,4 @@ Although it's written in vanilla Javascript, Trellis also comes packaged as a jQ
 ```
 
 ##Example
-A basic example is available on [JSFiddle](http://jsfiddle.net/VVsLt/1/)
-
+A basic example is available on [JSFiddle](http://jsfiddle.net/VVsLt/2/)

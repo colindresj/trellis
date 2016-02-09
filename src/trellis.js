@@ -1,11 +1,3 @@
-/*
- * Trellis
- *
- *
- * Copyright (c) 2014 JC
- * Licensed under the MIT license.
- */
-
 function Trellis(container, config) {
   'use strict';
 
@@ -175,9 +167,8 @@ function Trellis(container, config) {
   return container;
 }
 
-
 // Make available as jQuery/Zepto plugin
-if (window.jQuery || window.Zepto) {
+if (window && (window.jQuery || window.Zepto)) {
   (function($) {
     'use strict';
     $.fn.trellis = function(options) {

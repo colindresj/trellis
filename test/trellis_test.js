@@ -100,6 +100,4 @@
     ok( this.$el.trellis( {gutter: 5 }), 'should accept options' );
     ok( this.$el.trellis(), 'should be ok with no options' );
   });
-
-
 }(jQuery));
