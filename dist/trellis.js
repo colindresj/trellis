@@ -1,5 +1,5 @@
 /**
- * Trellis 1.0.0
+ * Trellis 1.1.0
  * Lightweight masonry layouts.
  *
  * Copyright (c) 2014 - 2016 JC
