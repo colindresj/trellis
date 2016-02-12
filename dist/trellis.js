@@ -131,9 +131,7 @@ function Trellis(container, config) {
   }
 
   function _arrayMin(arr) {
-    return arr.reduce(function(pv, cv) {
-      return ((cv < pv) || (pv === null)) ? cv : pv;
-    }, null);
+    return Math.min.apply(Math, arr);
   }
 
   // Start the plugin
