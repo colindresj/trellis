@@ -74,7 +74,7 @@ function Trellis(container, config) {
     // according to the shortest available column
     for (i = cols.length -1; i >=0; i--) {
       current = cols[i];
-      shortest = colsArray.min();
+      shortest = _arrayMin(colsArray);
       j = colsArray.indexOf(shortest);
 
       current.style.top = shortest + 'px';
@@ -86,14 +86,19 @@ function Trellis(container, config) {
     }
   }
 
-  function init() {
+  function handleResize() {
     setPlaceholders();
     createCols();
+  }
 
-    window.addEventListener('resize', function(){
-      setPlaceholders();
-      createCols();
-    });
+  function init() {
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+  }
+
+  function destroy() {
+    window.removeEventListener('resize', handleResize);
   }
 
   function _extend() {
@@ -125,51 +130,10 @@ function Trellis(container, config) {
     return functionToCheck && Object.prototype.toString.call(functionToCheck) === '[object Function]';
   }
 
-  Array.prototype.indexOf = Array.prototype.indexOf || function(searchEl, fromIndex){
-    var length = this.length,
-        i = (typeof fromIndex === 'undefined' ? 0 : (fromIndex < 0 ? length + fromIndex : fromIndex)),
-        foundIndex = -1;
-
-    for (i; i < length; ++i) {
-      if (this[i] === searchEl) {
-        foundIndex = i;
-        break;
-      }
-    }
-
-    return foundIndex;
-  };
-
-  Array.prototype.min = function() {
-    return Math.min.apply(Math, this);
-  };
-
-  // Thank you to Polyfill.js for these two polyfills
-  if (!document.querySelectorAll) {
-    document.querySelectorAll = function(selectors) {
-      var style = document.createElement('style'), elements = [], element;
-      document.documentElement.firstChild.appendChild(style);
-      document._qsa = [];
-
-      style.styleSheet.cssText = selectors + '{x-qsa:expression(document._qsa && document._qsa.push(this))}';
-      window.scrollBy(0, 0);
-      style.parentNode.removeChild(style);
-
-      while (document._qsa.length) {
-        element = document._qsa.shift();
-        element.style.removeAttribute('x-qsa');
-        elements.push(element);
-      }
-      document._qsa = null;
-      return elements;
-    };
-  }
-
-  if (!document.querySelector) {
-    document.querySelector = function(selectors) {
-      var elements = document.querySelectorAll(selectors);
-      return (elements.length) ? elements[0] : null;
-    };
+  function _arrayMin(arr) {
+    return arr.reduce(function(pv, cv) {
+      return ((cv < pv) || (pv === null)) ? cv : pv;
+    }, null);
   }
 
   // Start the plugin
@@ -177,7 +141,7 @@ function Trellis(container, config) {
 
   // Check for an afterInit hook and invoke
   if ( _isFunction(opts.afterInit) ) {
-    opts.afterInit.call(window, container);
+    opts.afterInit.call(window, container, destroy);
   }
 
   return container;
